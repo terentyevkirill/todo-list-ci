@@ -12,22 +12,13 @@
     <link rel="stylesheet" href="<?php echo site_url('assets/animate-css/animate.min.css'); ?>">
     <link rel="stylesheet" href="<?php echo site_url('assets/hover-css/hover.min.css'); ?>">
     <link rel="stylesheet" href="<?php echo site_url('assets/css/style.css'); ?>">
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
 
 </head>
 <body>
 
-<div class="container" id="main-container">
-    <div class="row">
-        <div class="col-xs-12">
-            <div class="jumbotron">
-                <h1 class="textcenter">Todo List</h1>
-            </div>
-        </div>
-    </div>
+<div class="container" id="main-container" style="margin-top: 20px">
     <div class="row">
         <div class="col-md-6">
-
             <div class="panel">
                 <div class="panel-heading">
                     <h3>Список заданий</h3>
@@ -39,12 +30,9 @@
                             foreach ($items as $item) { ?>
                                 <li>
                                     <h3>&nbsp;
-                                        <?php echo $item->desc; ?>
+                                        <a href="<?php echo site_url('todolist/todo/' . $item->id); ?>"><?php echo $item->desc; ?></a>
                                         <a href="<?php echo site_url('todolist/delete_task/' . $item->id); ?>">
                                             <i class="glyphicon glyphicon-trash"></i>
-                                        </a>
-                                        <a href="<?php echo site_url('todolist/todo/' . $item->id); ?>">
-                                            <i class="glyphicon glyphicon-edit"></i>
                                         </a>
                                     </h3>
                                 </li>

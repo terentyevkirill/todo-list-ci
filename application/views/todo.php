@@ -12,31 +12,27 @@
     <link rel="stylesheet" href="<?php echo site_url('assets/animate-css/animate.min.css'); ?>">
     <link rel="stylesheet" href="<?php echo site_url('assets/hover-css/hover.min.css'); ?>">
     <link rel="stylesheet" href="<?php echo site_url('assets/css/style.css'); ?>">
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
-
-    <script>
-
-    </script>
 </head>
 <body>
-<div class="container" id="main-container">
+<div class="container" id="main-container" style="margin-top: 20px">
     <div class="row">
-        <div class="col-xs-12">
-            <div class="jumbotron">
-                <h1 class="textcenter">Todo</h1>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6" id="edit_form">
+        <div class="col-md-12" id="edit_form">
             <div class="panel">
+                <div class="panel-heading">
+                    <h3>Задание</h3>
+                </div>
                 <div class="panel-body">
                     <form method="POST"
                           action="<?php echo site_url('todolist/edit_task/' . $item->id); ?>">
                         <input type="text" name="item" required value="<?php echo $item->desc; ?>">
+                        <br>
+                        <?php echo 'Created at: ' . $item->created_at; ?>
+                        <?php if ($item->updated_at != '0000-00-00 00:00:00') { ?>
+                            <br><?php echo 'Updated at: ' . $item->updated_at;
+                        } ?>
                         <br/><br/>
-                        <button class="btn btn-secondary" id="cancel_but" type="button"
-                                onclick="location.href='http://localhost/todo-list/todolist'">Отмена
+                        <button class="btn btn-secondary" id="back_but" type="button"
+                                onclick="location.href='http://localhost/todo-list/todolist'">Назад
                         </button>
                         <button class="btn btn-primary" id="edit_but" type="submit">Сохранить</button>
                     </form>
@@ -44,13 +40,10 @@
                     <form method="POST" action="<?php echo site_url('todolist/delete_task/' . $item->id); ?>">
                         <button class="btn btn-danger" id="delete_but" type="submit">Удалить</button>
                     </form>
-
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-
 </body>
 </html>

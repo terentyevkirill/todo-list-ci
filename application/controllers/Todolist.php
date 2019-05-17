@@ -1,6 +1,6 @@
 <?php
 
-class Todolist extends My_Controller
+class Todolist extends MY_Controller
 {
 
     public function __construct()
@@ -21,9 +21,10 @@ class Todolist extends My_Controller
 
     public function todo($id)
     {
-        $data["item"] = $this->todo_model->get('id', $id);
+        $data["item"] = $this->todo_model->get($id);
         $this->load->view('todo', $data);
     }
+
     public function add_task()
     {
         // get values from the post
@@ -50,16 +51,17 @@ class Todolist extends My_Controller
         if ($id) {
             $item = $this->input->post('item');
             $update = array();
+            $updatep['id'] = $id;
             $update['desc'] = $item;
-            $this->todo_model->updateById($id);
+            $this->todo_model->update($update, $id);
         }
         $this->index();
     }
 
     function delete_task($id)
     {
-        $this->todo_model->deleteById($id);
+        $this->todo_model->delete($id);
         $this->index();
     }
 
-}// class ends 
+}
