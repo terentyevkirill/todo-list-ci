@@ -24,7 +24,8 @@
                 <div class="panel-body">
                     <form method="POST"
                           action="<?php echo site_url('todolist/edit_task/' . $item->id); ?>">
-                        <input type="text" name="item" required value="<?php echo $item->desc; ?>">
+
+                        <textarea rows="3" cols="35" name="item" required><?php echo $item->desc; ?></textarea>
                         <br>
                         <?php echo 'Created at: ' . $item->created_at; ?>
                         <?php if ($item->updated_at != '0000-00-00 00:00:00') { ?>

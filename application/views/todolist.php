@@ -53,7 +53,7 @@
                 </div>
                 <div class="panel-body">
                     <form method="POST" action="<?php echo site_url('todolist/add_task'); ?>">
-                        <input type="text" placeholder="Задание" name="item" required>
+                        <textarea rows="3" cols="35" placeholder="Задание" name="item" required ></textarea>
                         <br/><br/>
                         <button class="btn btn-primary" type="submit">Добавить</button>
                     </form>
@@ -61,8 +61,18 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel">
+                <div class="panel-footer">
+                    <a href="web_lab11_terentiev_p.pdf">Протокол</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>
+
 
 </body>
 </html>
